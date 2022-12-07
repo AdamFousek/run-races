@@ -25,7 +25,6 @@ services:
         depends_on:
             - mysql
             - redis
-            - meilisearch
             - mailhog
             - selenium
     mysql:
@@ -60,18 +59,6 @@ services:
             test: ["CMD", "redis-cli", "ping"]
             retries: 3
             timeout: 5s
-    meilisearch:
-        image: 'getmeili/meilisearch:latest'
-        ports:
-            - '${FORWARD_MEILISEARCH_PORT:-7700}:7700'
-        volumes:
-            - 'sail-meilisearch:/meili_data'
-        networks:
-            - sail
-        healthcheck:
-            test: ["CMD", "wget", "--no-verbose", "--spider",  "http://localhost:7700/health"]
-            retries: 3
-            timeout: 5s
     mailhog:
         image: 'mailhog/mailhog:latest'
         ports:
@@ -85,6 +72,16 @@ services:
             - 'host.docker.internal:host-gateway'
         volumes:
             - '/dev/shm:/dev/shm'
+        networks:
+            - sail
+    mongodb:
+        image: mongo
+        environment:
+            - MONGO_INITDB_DATABASE=${MONGO_DB_DATABASE:-run-races}
+            - MONGO_INITDB_ROOT_USERNAME=${MONGO_DB_USERNAME:-root}
+            - MONGO_INITDB_ROOT_PASSWORD=${MONGO_DB_PASSWORD:-123456}
+        ports:
+            - '${FORWARD_MONGO_PORT:-27017}:27017'
         networks:
             - sail
 networks:
