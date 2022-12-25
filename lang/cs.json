@@ -1,0 +1,55 @@
+{
+  "News": "Aktuality",
+  "Races": "Závody",
+  "Runners": "Závodníci",
+  "Administration": "Administace",
+  "Users": "Uživatelé",
+
+  "User": "Uživatel",
+  "Moderator": "Moderátor",
+  "Administrator": "Administrátor",
+
+  "Login": "Přihlášení",
+  "Register": "Registrace",
+  "Email": "E-mail",
+  "Password": "Heslo",
+  "Name": "Jméno",
+  "Log in": "Přihlásit se",
+  "Role": "Role",
+  "Account created at": "Účet založen",
+  "Is active": "Aktivní",
+
+  "Posts": "Příspěvky",
+  "Post": "Příspěvek",
+  "Create post": "Vytvořit příspěvek",
+  "Post title": "Titulek",
+  "Post slug": "Url adresa",
+  "Post perex": "Perex (255zn)",
+  "Post content": "Obsah příspěvku",
+  "Post publish at": "Naplánovat příspěvek",
+  "Post state": "Status příspěvku",
+  "Draft": "Koncept",
+  "Publish": "Publikován",
+  "Add post": "Přidat příspěvek",
+
+  "Showing": "Zobrazeno",
+  "to": "až",
+  "of": "z",
+  "results": "vysledků",
+
+  "Are you sure, you want delete this user?": "Opravdu si přejete odstranit tohoto uživatele?",
+  "Delete": "Odstranit",
+  "Close": "Zavřít",
+
+  "Select value": "Vyberte hodnotu",
+
+  "Actions": "Akce",
+
+  "name asc": "Jméno ABC",
+  "name desc": "Jméno ZXY",
+  "email asc": "E-mail ABC",
+  "email desc": "E-mail ZXY",
+
+  "Remember me": "Zapamatovat si mě",
+  "Forgot your password?": "Zapomněli jste heslo?"
+}
