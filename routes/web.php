@@ -5,9 +5,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Livewire;
 
 
-Route::get('/', Livewire\Pages\Welcome::class)->name('news');
+Route::get('/', Livewire\Pages\Welcome::class)->name('article.index');
 
-Route::get('/article/{post}')->name('article');
+Route::get('/article/{post}', Livewire\Pages\PostDetail::class)->name('article.detail');
 
 Route::middleware(['auth', 'verified'])->group(function() {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

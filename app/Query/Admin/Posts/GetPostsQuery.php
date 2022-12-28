@@ -8,10 +8,10 @@ namespace App\Query\Admin\Posts;
 class GetPostsQuery
 {
     public function __construct(
-        public readonly string $search,
-        public readonly int $pagination,
-        public readonly bool $showDeleted,
-        public readonly array $orderBy,
+        public readonly string $search = '',
+        public readonly int $pagination = 5,
+        public readonly bool $showDeleted = false,
+        public readonly array $orderBy = [],
     ) {
     }
 }

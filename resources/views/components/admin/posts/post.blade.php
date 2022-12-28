@@ -5,6 +5,9 @@
     <td class="text-sm text-gray-900 font-light px-6 py-2 whitespace-nowrap dark:text-gray-50">
         {{ __($post->user->name) }}
     </td>
+    <td class="text-sm text-gray-900 font-light px-6 py-2 whitespace-nowrap dark:text-gray-50">
+        {{ $post->published_at?->format('j.n.Y H:i') ?? $post->created_at->format('j.n.Y H:i') }}
+    </td>
     @if($showDeleted)
         <td class="text-sm text-gray-900 font-light px-6 py-2 whitespace-nowrap dark:text-gray-50">
             {{ $post->deleted_at->format('j.n.Y H:i') }}

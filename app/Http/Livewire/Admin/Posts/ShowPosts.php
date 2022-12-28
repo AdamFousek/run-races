@@ -37,7 +37,7 @@ class ShowPosts extends Component
 
     public function paginationView()
     {
-        return 'components.pagination';
+        return 'components.admin.pagination';
     }
 
     public function mount()

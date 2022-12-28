@@ -27,14 +27,8 @@
 
     <div class="mb-2">
         <x-input-label for="published_at" :value="__('Post publish at')" />
-        <x-text-input wire:model.lazy="post.published_at" id="published_at" name="published_at" type="datetime-local" class="mt-1" />
+        <x-text-input wire:model.lazy="date" id="published_at" name="published_at" type="datetime-local" class="mt-1" />
         <x-input-error class="mt-2" :messages="$errors->get('post.published_at')" />
-    </div>
-
-    <div class="mb-2">
-        <x-input-label for="state" :value="__('Post state')" />
-        <x-select-input wire:model.lazy="post.state" :options="$states" id="state" name="state" type="datetime-local" class="mt-1" />
-        <x-input-error class="mt-2" :messages="$errors->get('post.state')" />
     </div>
 
     <div class="flex items-end justify-end mt-4">

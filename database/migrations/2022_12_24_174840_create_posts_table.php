@@ -20,8 +20,7 @@ return new class extends Migration
             $table->string('perex', 255);
             $table->string('slug', 255);
             $table->longText('content');
-            $table->string('state')->default('draft');
-            $table->dateTime('published_at')->nullable();
+            $table->dateTime('published_at');
             $table->timestamps();
             $table->softDeletes();
 
