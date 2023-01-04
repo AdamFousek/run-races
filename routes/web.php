@@ -16,7 +16,11 @@ Route::middleware(['auth', 'verified'])->group(function() {
 
     Route::middleware(['adminRoutes'])->prefix('/admin')->group(function () {
         Route::get('/', Livewire\Admin\Dashboard::class)->name('dashboard');
-        Route::get('/post/create', Livewire\Admin\Posts\CreatePost::class)->name('admin.post.create');
+
+        Route::prefix('/post')->group(function () {
+            Route::get('/create', Livewire\Admin\Posts\CreatePost::class)->name('admin.post.create');
+            Route::get('/{post:id}/edit', Livewire\Admin\Posts\UpdatePost::class)->name('admin.post.update');
+        });
 
         Route::get('/users', Livewire\Admin\Users\ShowUsers::class)->name('admin.users.index');
     });

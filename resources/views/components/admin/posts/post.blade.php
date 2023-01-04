@@ -8,6 +8,9 @@
     <td class="text-sm text-gray-900 font-light px-6 py-2 whitespace-nowrap dark:text-gray-50">
         {{ $post->published_at?->format('j.n.Y H:i') ?? $post->created_at->format('j.n.Y H:i') }}
     </td>
+    <td class="text-sm text-gray-900 font-light px-6 py-2 whitespace-nowrap dark:text-gray-50">
+        {{ $post->updated_at?->format('j.n.Y H:i') ?? $post->created_at->format('j.n.Y H:i') }}
+    </td>
     @if($showDeleted)
         <td class="text-sm text-gray-900 font-light px-6 py-2 whitespace-nowrap dark:text-gray-50">
             {{ $post->deleted_at->format('j.n.Y H:i') }}
@@ -18,7 +21,7 @@
     </td>
     <td class="text-sm text-gray-900 font-light px-6 py-2 whitespace-nowrap text-right dark:text-gray-50">
         @can('update', $post)
-            <x-icon-link title="{{ __('Update post') }}" name="pencil" variant="outline" size="small" class="cursor-pointer hover:bg-amber-300 dark:hover:bg-amber-600 mr-1" />
+            <x-icon-link :href="route('admin.post.update', $post->id)" title="{{ __('Update post') }}" name="pencil" variant="outline" size="small" class="cursor-pointer hover:bg-amber-300 dark:hover:bg-amber-600 mr-1" />
         @endcan
         @can('delete', $post)
             <x-icon-link title="{{ __('Delete post') }}" name="trash" variant="outline" size="small" class="cursor-pointer hover:bg-red-400 dark:hover:bg-red-800" data-bs-toggle="modal" data-bs-target="#deletePost_{{ $post->id }}" />

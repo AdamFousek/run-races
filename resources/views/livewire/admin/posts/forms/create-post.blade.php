@@ -21,7 +21,7 @@
 
     <div class="mb-2">
         <x-input-label for="content" :value="__('Post content')" />
-        <livewire:components.trix :value="$post->content"/>
+        <livewire:components.trix :value="$content"/>
         <x-input-error class="mt-2" :messages="$errors->get('post.content')" />
     </div>
 

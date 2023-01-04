@@ -22,7 +22,8 @@ class Trix extends Component
         return view('livewire.components.trix');
     }
 
-    public function updatedValue($value){
+    public function updatedValue($value): void
+    {
         $this->emit(self::EVENT_VALUE_UPDATED, $this->value);
     }
 }

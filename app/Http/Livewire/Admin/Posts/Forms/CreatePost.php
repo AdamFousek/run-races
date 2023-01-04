@@ -8,14 +8,18 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
+use Tonysm\RichTextLaravel\Livewire\WithRichTexts;
 
 class CreatePost extends Component
 {
     use AuthorizesRequests;
+    use WithRichTexts;
 
     public Post $post;
 
     public string $date;
+
+    public string $content;
 
     protected array $rules = [
         'post.title' => 'required|string|max:255',
@@ -30,7 +34,7 @@ class CreatePost extends Component
 
     public function trix_value_updated($value)
     {
-        $this->post->content = $value;
+        $this->content = $value;
     }
 
     public function updatedPostTitle($value): void
@@ -40,7 +44,6 @@ class CreatePost extends Component
 
     public function updatedPostSlug($value): void
     {
-        dd($this->post->generateSlug($value));
         $this->post->slug = $this->post->generateSlug($value);
     }
 
@@ -54,7 +57,8 @@ class CreatePost extends Component
         $this->authorize('create', Post::class);
 
         $this->post = new Post();
-        $this->date = (new Carbon())->toDateString();
+        $this->content = '';
+        $this->date = '';
     }
 
     public function render()
@@ -75,10 +79,10 @@ class CreatePost extends Component
             $this->post->published_at = new Carbon();
         }
 
+        $this->post->content = $this->content;
         $this->post->user_id = $user->id;
         $this->post->save();
 
         return redirect(route('dashboard'));
     }
-
 }

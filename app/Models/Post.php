@@ -27,7 +27,7 @@ class Post extends Model
         'user_id',
     ];
 
-    protected $richTextFields = [
+    protected array $richTextFields = [
         'content',
     ];
 
@@ -68,10 +68,11 @@ class Post extends Model
     public function generateSlug(string $value): string
     {
         $i = 0;
-        $slug = Str::slug($value);
+        $original = Str::slug($value);
+        $slug = $original;
         while(self::query()->where('slug', $slug)->exists()) {
             $i++;
-            $slug .= ' '.$i;
+            $slug = $original . ' '.$i;
             $slug = Str::slug($slug);
         }
 
