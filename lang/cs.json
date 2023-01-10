@@ -36,6 +36,14 @@
   "Add post": "Přidat příspěvek",
   "Show post": "Zobrazit příspěvek",
   "Edit post": "Upravit příspěvek",
+  "Delete post": "Odstranit příspěvek",
+  "Restore post": "Obnovit příspěvek",
+  "Updated at": "Aktualizováno",
+  "Are you sure you want delete this article?": "Opravdu si přejete smazat tento příspěvek?",
+
+  "Comments": "Komentáře",
+  "Your comment": "Váš komentář",
+  "Write a comment...": "Napište komentář...",
 
   "Showing": "Zobrazeno",
   "to": "až",

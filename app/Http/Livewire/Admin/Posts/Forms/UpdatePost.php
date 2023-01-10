@@ -16,6 +16,8 @@ class UpdatePost extends Component
 
     public string $date;
 
+    public string $content;
+
     protected array $rules = [
         'post.title' => 'required|string|max:255',
         'post.perex' => 'nullable|string|max:255',
@@ -29,7 +31,7 @@ class UpdatePost extends Component
 
     public function trix_value_updated($value)
     {
-        $this->post->content = $value;
+        $this->content = $value;
     }
 
     public function updatedPostTitle($value): void
@@ -52,7 +54,8 @@ class UpdatePost extends Component
         $this->authorize('update', Post::class);
 
         $this->post = $post;
-        $this->date = $post->published_at->toDatetimeString();
+        $this->date = $post->published_at;
+        $this->content = $post->content->toTrixHtml();
     }
 
     public function render()
@@ -70,6 +73,7 @@ class UpdatePost extends Component
         if ($user === null) {
             return redirect(route('login'));
         }
+        $this->post->content = $this->content;
 
         $this->post->save();
 

@@ -14,7 +14,7 @@ class PostPolicy
     public function before(User $user, $ability)
     {
         if ($user->isAdmin()) {
-            return true;
+            return Response::allow();
         }
     }
 

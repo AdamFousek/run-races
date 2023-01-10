@@ -69,4 +69,13 @@ class ShowPosts extends Component
             $this->orderBy['desc'] = false;
         }
     }
+
+    public function restore(int $id)
+    {
+        $post = Post::withTrashed()->where('id', $id)->first();
+
+        if ($post !== null) {
+            $post->restore();
+        }
+    }
 }
