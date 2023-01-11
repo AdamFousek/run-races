@@ -70,21 +70,13 @@
                     </thead>
                     <tbody>
                     @foreach($users as $user)
-                        <x-admin.users.user :user="$user" wire:key="user-{{ $user->id }}" :showDeleted="$showDeleted" />
-                        @if(Auth::user()->isAdmin())
-                            <div class="modal fade fixed top-0 left-0 hidden w-full h-full outline-none overflow-x-hidden overflow-y-auto"
-                                 id="deleteUser_{{ $user->id }}" tabindex="-1" aria-labelledby="deleteUser_{{ $user->id }}" aria-hidden="true">
-                                <div class="modal-dialog relative w-auto pointer-events-none">
-                                    <livewire:admin.users.forms.delete-user :user="$user" wire:key="user-{{ $user->id }}" />
-                                </div>
-                            </div>
-                        @endif
+                        <livewire:admin.users.components.user-item :user="$user" wire:key="user-{{ $user->id }}" :showDeleted="$showDeleted" />
                     @endforeach
                     </tbody>
                 </table>
             </div>
             <div class="flex justify-center">
-                {{ $users->onEachSide(4)->links() }}
+                {{ $users->links() }}
             </div>
         </div>
     </div>

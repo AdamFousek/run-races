@@ -25,14 +25,19 @@ class ShowUsers extends Component
 
     public bool $showDeleted = false;
 
+    protected $listeners = [
+        'refreshUsers' => '$refresh',
+    ];
+
     public function updatingSearch(): void
     {
         $this->resetPage();
     }
 
-    public function updatingShowDeleted(): void
+    public function updatingShowDeleted(bool $value): void
     {
         $this->resetPage();
+        $this->emit('userItemToggleDeleted', $value);
     }
 
     public function paginationView()

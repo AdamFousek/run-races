@@ -31,7 +31,7 @@ class CommentRow extends Component
 
         $this->comment->restore();
 
-        $this->withMessage('success', __('Comment was restored!'));
+        $this->withMessage('success', trans('Comment was restored!'));
     }
 
     public function toggleStatus(bool $publish = false)
@@ -42,6 +42,6 @@ class CommentRow extends Component
 
         $this->comment->save();
 
-        $this->withMessage('success', __('Comment status was change!'));
+        $this->withMessage('success', trans('Comment status was change!'));
     }
 }

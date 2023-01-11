@@ -1,6 +1,6 @@
 <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
     <div class="flex flex-wrap justify-between items-center flex-col md:flex-row">
-        <h2 class="p-4 text-2xl dark:text-gray-100">{{ __('Posts') }}</h2>
+        <h2 class="p-4 text-2xl dark:text-gray-100">{{ __('Posts') }} ({{ $posts->count() }})</h2>
         <div class="flex flex-wrap p-2">
             <label for="allMembers" class="inline-flex items-center mr-2 ">
                 <input wire:model.lazy="showDeleted" id="showDeleted" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
@@ -74,15 +74,7 @@
             </thead>
             <tbody>
             @foreach($posts as $post)
-                <x-admin.posts.post :post="$post" wire:key="post-{{ $post->id }}" :showDeleted="$showDeleted" />
-                @can('delete', $post)
-                    <div class="modal fade fixed top-0 left-0 hidden w-full h-full outline-none overflow-x-hidden overflow-y-auto"
-                         id="deletePost_{{ $post->id }}" tabindex="-1" aria-labelledby="deletePost_{{ $post->id }}" aria-hidden="true">
-                        <div class="modal-dialog relative w-auto pointer-events-none">
-                            <livewire:admin.posts.forms.delete-post :post="$post" wire:key="post-{{ $post->id }}" />
-                        </div>
-                    </div>
-                @endcan
+                <livewire:admin.posts.components.post-item :post="$post" wire:key="post-{{ $post->id }}" :showDeleted="$showDeleted" />
             @endforeach
             </tbody>
         </table>

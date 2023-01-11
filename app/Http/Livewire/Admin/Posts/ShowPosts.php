@@ -25,6 +25,10 @@ class ShowPosts extends Component
 
     public bool $showDeleted = false;
 
+    protected $listeners = [
+        'refreshPosts' => '$refresh',
+    ];
+
     public function updatingSearch(): void
     {
         $this->resetPage();
@@ -67,15 +71,6 @@ class ShowPosts extends Component
         } else {
             $this->orderBy['field'] = $field;
             $this->orderBy['desc'] = false;
-        }
-    }
-
-    public function restore(int $id)
-    {
-        $post = Post::withTrashed()->where('id', $id)->first();
-
-        if ($post !== null) {
-            $post->restore();
         }
     }
 }
