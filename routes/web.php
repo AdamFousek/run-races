@@ -20,6 +20,7 @@ Route::middleware(['auth', 'verified'])->group(function() {
         Route::prefix('/post')->group(function () {
             Route::get('/create', Livewire\Admin\Posts\CreatePost::class)->name('admin.post.create');
             Route::get('/{post:id}/edit', Livewire\Admin\Posts\UpdatePost::class)->name('admin.post.update');
+            Route::get('/{post:id}/comments', Livewire\Admin\Comments\ShowComments::class)->name('admin.post.comments');
         });
 
         Route::get('/users', Livewire\Admin\Users\ShowUsers::class)->name('admin.users.index');

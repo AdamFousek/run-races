@@ -12,9 +12,9 @@ class GetPostsHandler
     public function handle(GetPostsQuery $query)
     {
         if ($query->showDeleted) {
-            $qb = Post::onlyTrashed()->with('user');
+            $qb = Post::onlyTrashed()->with(['user', 'comments']);
         } else {
-            $qb = Post::query()->with('user');
+            $qb = Post::query()->with(['user', 'comments']);
         }
 
         $search = trim($query->search);

@@ -52,6 +52,24 @@ class CommentPolicy
         return Response::deny();
     }
 
+    public function report(User $user, Comment $comment): Response
+    {
+        if ($user->id !== $comment->user->id) {
+            return Response::allow();
+        }
+
+        return Response::deny();
+    }
+
+    public function toggleStatus(User $user, Comment $comment): Response
+    {
+        if ($user->isAdmin()) {
+            return Response::allow();
+        }
+
+        return Response::deny();
+    }
+
     public function forceDelete(User $user, Comment $comment): Response
     {
         if ($user->isAdmin()) {

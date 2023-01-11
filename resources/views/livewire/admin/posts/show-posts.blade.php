@@ -62,6 +62,9 @@
                     </div>
                 </th>
                 <th scope="col" class="text-sm text-gray-900 dark:text-gray-100 px-6 py-2">
+                    {{ __('Comments') }}
+                </th>
+                <th scope="col" class="text-sm text-gray-900 dark:text-gray-100 px-6 py-2">
                     <div class="flex flex-wrap justify-end items-center">
                         <span class="mr-4">{{ __('Actions') }}</span>
                         <x-icon-link :href="route('admin.post.create')" title="{{ __('Add post') }}" name="plus" variant="outline" class="cursor-pointer hover:bg-emerald-300 mr-1" />

@@ -29,6 +29,8 @@
                 </header>
             @endif
 
+            <livewire:components.alert />
+
             <!-- Page Content -->
             <main>
                 {{ $slot }}

@@ -9,7 +9,8 @@
                     <x-primary-link :href="route('article.detail', $new)" class="text-2xl text-gray-700 font-bold hover:underline">{{ $new->title }}</x-primary-link>
                     <p class="mt-2 text-gray-600">{{ $new->perex ?: Str::limit($new->content->toPlainText(), 300) }}</p>
                 </div>
-                <div class="flex justify-end items-center mt-4">
+                <div class="flex justify-between items-center mt-4">
+                    <div class="text-gray-500 text-sm">{{ __('Comments') }} {{ $new->comments()->published()->count() }}</div>
                     <x-primary-link :href="route('article.detail', $new)">
                         {{ __('Show post') }}
                     </x-primary-link>

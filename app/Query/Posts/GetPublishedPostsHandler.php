@@ -11,6 +11,6 @@ class GetPublishedPostsHandler
 {
     public function handle(GetPublishedPostsQuery $query)
     {
-        return Post::query()->published()->newest()->paginate($query->pagination);
+        return Post::query()->with('comments')->published()->newest()->paginate($query->pagination);
     }
 }

@@ -18,6 +18,8 @@
   "Role": "Role",
   "Account created at": "Účet založen",
   "Is active": "Aktivní",
+  "Confirm Password": "Potvrdit heslo",
+  "Already registered?": "Již máte účet?",
 
   "Posts": "Příspěvky",
   "Post": "Příspěvek",
@@ -44,6 +46,12 @@
   "Comments": "Komentáře",
   "Your comment": "Váš komentář",
   "Write a comment...": "Napište komentář...",
+  "Comment was created!": "Komentář byl vytvořen!",
+  "Comment was updated!": "Komentář byl upraven!",
+  "To add new comment, you have to login first": "Abyste mohl přidat komentář, musíte se nejdříve přihlásit.",
+  "Are you sure you want delete this comment?": "Opravdu si přejete smazat tento komentář?",
+  "Comment status was change!": "Status komentáře byl změněn.",
+  "Comment was restored!": "Komentář byl obnoven!",
 
   "Showing": "Zobrazeno",
   "to": "až",

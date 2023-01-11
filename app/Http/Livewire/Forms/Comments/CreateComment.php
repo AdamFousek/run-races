@@ -16,8 +16,10 @@ class CreateComment extends Component
 
     public Comment $comment;
 
+    public string $content = '';
+
     protected array $rules = [
-        'comment.content' => 'required|string',
+        'content' => 'required|string',
     ];
 
     public function mount(Post $post)
@@ -44,8 +46,11 @@ class CreateComment extends Component
 
         $this->comment->user_id = $user->id;
         $this->comment->post_id = $this->post->id;
+        $this->comment->status = Comment::STATUS_PUBLISHED;
+        $this->comment->content = htmlspecialchars($this->content);
         $this->comment->save();
 
-        return redirect()->back();
+        return redirect(route('article.detail', $this->post))
+            ->with('success', trans('Comment was created!'));
     }
 }
