@@ -25,6 +25,16 @@ class UserItem extends Component
         return view('livewire.admin.users.components.user-item');
     }
 
+    public function restore()
+    {
+        $this->authorize('restore', $this->user);
+
+        $this->user->restore();
+
+        $this->emit('refreshUsers');
+        $this->withMessage('success', trans('User was successfully restored!'));
+    }
+
     public function delete()
     {
         $this->authorize('delete', $this->user);

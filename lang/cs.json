@@ -64,12 +64,25 @@
   "Account deleted at": "Smazáno dne",
   "Are you sure, you want delete this user?": "Opravdu si přejete odstranit tohoto uživatele?",
   "User was successfully deleted!": "Uživatel byl odstraněn!",
+  "User was successfully restored!": "Uživatel byl obnoven!",
   "Delete": "Odstranit",
   "Close": "Zavřít",
 
   "Select value": "Vyberte hodnotu",
 
   "Actions": "Akce",
+
+  "Races": "Závody",
+  "Race name": "Název",
+  "Add race": "Přidat závod",
+  "Create race": "Vytvořit závod",
+  "Delete race": "Smazat závod",
+  "Restore race": "Obnovit závod",
+  "Are you sure you want delete this race?": "Opravdu si přejete odstranit tento závod?",
+  "Race slug": "URL slug",
+  "Race description": "Popis závodu",
+  "Race date": "Datum závodu",
+  "Race created at": "Vytvořeno",
 
   "name asc": "Jméno ABC",
   "name desc": "Jméno ZXY",

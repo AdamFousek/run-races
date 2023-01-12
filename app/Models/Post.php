@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Traits\UsingSlug;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -9,7 +10,6 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Carbon;
-use Illuminate\Support\Str;
 use Tonysm\RichTextLaravel\Models\Traits\HasRichText;
 
 class Post extends Model
@@ -17,6 +17,7 @@ class Post extends Model
     use HasFactory;
     use SoftDeletes;
     use HasRichText;
+    use UsingSlug;
 
     protected $fillable = [
         'title',
@@ -69,19 +70,5 @@ class Post extends Model
     public function getRouteKeyName()
     {
         return 'slug';
-    }
-
-    public function generateSlug(string $value): string
-    {
-        $i = 0;
-        $original = Str::slug($value);
-        $slug = $original;
-        while(self::query()->where('slug', $slug)->exists()) {
-            $i++;
-            $slug = $original . ' '.$i;
-            $slug = Str::slug($slug);
-        }
-
-        return $slug;
     }
 }

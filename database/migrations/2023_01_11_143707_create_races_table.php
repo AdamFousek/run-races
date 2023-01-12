@@ -17,7 +17,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id');
             $table->string('name');
-            $table->longText('description');
+            $table->string('slug')->unique();
+            $table->dateTime('race_date');
             $table->timestamps();
             $table->softDeletes();
         });

@@ -53,6 +53,10 @@ class UserPolicy
 
     public function restore(User $user, User $model): Response
     {
+        if ($user->isAdmin()) {
+            return Response::allow();
+        }
+
         return Response::deny(trans('You do not have permission for this operation'));
     }
 

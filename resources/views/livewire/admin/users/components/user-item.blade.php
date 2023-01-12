@@ -20,6 +20,7 @@
         {{ $user->created_at->format('j.n.Y H:i') }}
     </td>
     <td class="text-sm text-gray-900 font-light px-6 py-2 whitespace-nowrap text-right dark:text-gray-50">
+        @if(!$user->deleted_at)
         @if(Auth::user()->isAdmin())
             <x-icon-link title="{{ __('Update user') }}" name="pencil" variant="outline" size="small" class="cursor-pointer hover:bg-amber-300 dark:hover:bg-amber-600 mr-1" />
         @endif
@@ -49,6 +50,11 @@
 
                 </div>
             </div>
+        @endif
+        @else
+            @can('restore', $user)
+                <x-icon-link title="{{ __('Restore user') }}" name="arrow-uturn-left" variant="outline" size="small" class="cursor-pointer hover:bg-green-400 dark:hover:bg-green-800" wire:click="restore" />
+            @endcan
         @endif
     </td>
 </tr>
